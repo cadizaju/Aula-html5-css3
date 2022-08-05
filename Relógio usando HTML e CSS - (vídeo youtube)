@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Relógio com html e css</title>
+</head>
+<body>
+   
+    <div id="fotos"><h6>fotos</h6></div>
+    <div id="fotos1"></div>
+    <div id="fotos2"></div>
+    <div id="fotos3"></div>
+    <div id="fotos4"></div>
+    <div id="fotos5"></div>
+                                <div id="fotosd"></div>
+                                <div id="fotosd1"></div>
+                                <div id="fotosd2"></div>
+                                <div id="fotosd3"></div>
+                                <div id="fotosd4"></div>
+                                <div id="fotosd5"></div>
+    <div id="fotos6"><h6>fotos</h6></div>
+    <div id="fotos7"></div>
+    <div id="fotos8"></div>
+    <div id="fotos9"></div>
+    <div id="fotos10"></div>
+    <div id="fotos11"></div>
+                                <div id="fotosd6"></div>
+                                <div id="fotosd7"></div>
+                                <div id="fotosd8"></div>
+                                <div id="fotosd9"></div>
+                                <div id="fotosd10"></div>
+                                <div id="fotosd11"></div>
+
+
+    <div class="container">
+        <div class="relogio">
+            <div class="circulo" id="sc" style="--clr:#04fc43;"><i></i></div>
+            <div class="circulo circulo2" id="mn" style="--clr:#f81f0c;"><i></i></div>
+            <div class="circulo circulo3" id="hr" style="--clr:#0415fc;"><i></i></div>
+
+            <span style="--i:1;"><b>1</b><p>1</p></span>
+            <span style="--i:2;"><b>2</b><p>2</p></span>
+            <span style="--i:3;"><b>3</b><p>3</p></span>
+            <span style="--i:4;"><b>4</b><p>4</p></span>
+            <span style="--i:5;"><b>5</b><p>5</p></span>
+            <span style="--i:6;"><b>6</b><p>6</p></span>
+            <span style="--i:7;"><b>7</b><p>7</p></span>
+            <span style="--i:8;"><b>8</b><p>8</p></span>
+            <span style="--i:9;"><b>9</b><p>9</p></span>
+            <span style="--i:10;"><b>10</b><p>10</p></span>
+            <span style="--i:11;"><b>11</b><p>11</p></span>
+            <span style="--i:12;"><b>12</b><p>12</p></span>
+
+        </div>
+        <div id="time">
+            <div id="hora" style="--clr:#0415fc;">00</div>
+            <div id="min" style="--clr:#f81f0c;">00</div>
+            <div id="sec" style="--clr:#04fc43;">00</div>
+            <div id="ampm">AM</div>
+
+            <style> * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+        
+            body {
+        
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-image: url("./img/paralax3.jpg");
+                background-repeat: no-repeat;
+            }
+            .container{
+                position: relative;
+                background: #00435e74;
+                opacity: .5;
+                border-radius: 20px;
+                border-top-left-radius: 225px;
+                border-top-right-radius: 225px;
+                box-shadow: 10px 50px 70px rgb(59, 59, 177), 10px 50px 70px rgb(84, 214, 205);;
+                inset: 5px 5px 10px rgba(0,0,0,0.5);
+                inset: 5px 5px 10px rgba(0,0,0,0.2);
+                inset: 5px 5px 10px rgba(0,0,0,0.75);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+            .relogio{
+                position: relative;
+                width: 450px;
+                height: 450px;
+                background: #fcde5775;
+                border-radius: 50%;
+                box-shadow: 10px 50px 70px rgba(0, 0, 0.25);
+                inset: 5px 5px 10px rgba(0,0,0,0.5);
+                inset: 5px 5px 10px rgba(0,0,0,0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 30px;
+            
+        
+            }
+            .relogio::before{
+                content: "";
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: #c33a10;
+                border: 3px solid #fff;
+                border-radius: 50%;
+                z-index: 100000;
+            }
+            .relogio span{
+                position: absolute;
+                inset: 5px;
+                color: #24292f;
+                text-align: center;
+                transform: rotate(calc(30deg * var(--i)));
+                /*360 dividido por 12 = 30 deg */
+                opacity: .9;
+        
+            }
+        
+            .relogio span b{
+                font-size: 25px;
+                opacity: 0.25;
+                font-weight: 600;
+                display: inline-block;
+                transform: rotate(calc(-30deg * var(--i)));
+                opacity: 1;
+            }
+             p{
+                margin-top: 100px;
+                font-size: 15px;
+                opacity: 1;
+                transform: rotate(calc(-30deg * var(--i)));
+            }
+            
+            .circulo{
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                border: 2px solid rgba(0,0,0,0.2);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                z-index: 10;
+            }
+        
+            .circulo i{
+                position: absolute;
+                width: 6px;
+                height: 50%;
+                background: var(--clr);
+                opacity: 0.5;
+                transform-origin: bottom;
+                transform: scaley(0.8);
+        
+            }
+            .circulo:nth-child(1) i {
+                width: 3px;
+            }
+            .circulo:nth-child(2) i {
+                width: 6px;
+            }
+        
+           .circulo2 {
+                width: 240px;
+                height: 240px;
+                position: absolute;
+                border: 1px solid rgba(0,0,0,0.2);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                z-index: 10;
+                opacity: 1;
+                
+        }
+           .circulo3 {
+                width: 180px;
+                height: 180px;
+                position: absolute;
+                border: 1px solid rgba(0,0,0,0.2);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                z-index: 10;
+        }
+        .circulo::before{
+            content: "";
+            position: absolute;
+            top:-8.5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--clr);
+            box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+        
+        }
+        .circulo2::before{
+            content: "";
+            position: absolute;
+            top:-6.5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--clr);
+            box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+        
+        }
+        .circulo3::before{
+            content: "";
+            position: absolute;
+            top:-5.5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--clr);
+            box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+        }
+        #time{
+            margin-bottom: 40px;
+            display: flex;
+            padding: 10px 20px;
+            font-size: 2em;
+            font-weight: 600;
+            border: 2px solid #eb170f;
+            border-radius: 40px;
+            box-shadow: 5px 5px 10px #2f363e, inset 5px 5px 20px #fff;
+            inset: 5px 5px 20px rgb(186, 141, 141);
+            inset: -5px 5px 20px rgb(105, 32, 32);
+        }
+        #time div{
+            position: relative;
+            width: 60px;
+            text-align: center;
+            font-weight: 500;
+            color: var(--clr);
+        }
+        
+        #time div:nth-child(1)::after,
+        
+        #time div:nth-child(2)::after
+        {
+            content:':';
+            position: absolute;
+            right: -4px;
+        }
+        
+        #time div:last-child{
+            font-size: 0.5em;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        
+        #time div:nth-child(2)::after{
+            animation: animando 1s steps(1) infinite;
+        }
+         @keyframes animando
+         {
+            0% 
+         { opacity: 1;}
+         
+        50%
+        { 
+            opacity: 0;
+        }
+        }
+        #cae{height: 50px;
+            font-size: 35px;
+            color: rgb(136, 8, 8);
+            animation: blz 3s steps(1) infinite;
+        }
+         @keyframes blz
+         {
+            0% 
+            { opacity: 1;}
+                0% 
+            { font-size: 6px;}
+                10% 
+            { font-size: 12px;}
+                20% 
+            { font-size: 15px;}
+                30% 
+            { font-size: 20px;}
+                40% 
+            { font-size: 25px;}
+                50%
+            {  opacity: 0;}
+                50%
+            { font-size: 30px;}
+                60% 
+            { font-size: 35px;}
+                80% 
+            { font-size: 38px;}
+                100% 
+            { font-size: 40px;}
+            
+             }
+             
+             #fotos {
+
+                background-repeat: no-repeat;
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:1300px;
+                margin-top: -500px;
+            }
+             #fotos1 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:1200px;
+                margin-top: -500px;
+            }
+             #fotos2 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:1100px;
+                margin-top: -500px;
+            }
+             #fotos3 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:1000px;
+                margin-top: -500px;
+            }
+             #fotos4 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:900px;
+                margin-top: -500px;
+            }
+             
+             #fotos5 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:800px;
+                margin-top: -500px;
+            }
+             #fotos6 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:1300px;
+                margin-top: -400px;
+            }
+             #fotos7 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:1200px;
+                margin-top: -400px;
+            }
+             #fotos8 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:1100px;
+                margin-top: -400px;
+            }
+             #fotos9 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:1000px;
+                margin-top: -400px;
+            }
+             #fotos10 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:900px;
+                margin-top: -400px;
+            }
+             #fotos11 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(13, 21, 238);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:800px;
+                margin-top: -400px;
+            }
+             #fotosd {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(36, 238, 13);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:-1300px;
+                margin-top: -500px;
+            }
+             #fotosd1 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(36, 238, 13);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:-1200px;
+                margin-top: -500px;
+            }
+             #fotosd2 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(36, 238, 13);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:-1100px;
+                margin-top: -500px;
+            }
+             #fotosd3 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(36, 238, 13);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:-1000px;
+                margin-top: -500px;
+            }
+             #fotosd4 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(36, 238, 13);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:-900px;
+                margin-top: -500px;
+            }
+             #fotosd5 {
+                background-image: url("img/paralaxmin.jpg");
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgb(36, 238, 13);
+                border-radius: 2%;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex;
+                z-index: 10;
+                margin-right:-800px;
+                margin-top: -500px;
+            }
+             
+             </style>
+
+        </div>
+        <div id="cae">Caê-Cursos</div>
+    </div>
+    <script>
+        let hr = document.querySelector("#hr");
+        let mn = document.querySelector("#mn");
+        let sc = document.querySelector("#sc");
+
+        setInterval(() =>{
+
+        let day = new Date();
+        let hh =  day.getHours() * 30;
+        let mm = day.getMinutes() * 6;
+        let ss =  day.getSeconds() * 6;
+
+        hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+        mn.style.transform = `rotateZ(${mm}deg)`;
+        sc.style.transform = `rotateZ(${ss}deg)`;
+
+        let hours = document.getElementById("hr");
+        let minutes = document.getElementById("mn");
+        let seconds = document.getElementById("sc");
+        let ampm = document.getElementById("ampm");
+
+        let h = new Date().getHours();
+        let m = new Date().getMinutes();
+        let s = new Date().getSeconds();
+
+        /* tracar antes e deposi do meio  dia AM PM */
+
+        let am = h >= 12 ? "PM" : "AM";
+
+        /* inserir valor 0 para numeros simples*/ampm
+        h = (h<10) ? "0" + h : h
+        m = (m<10) ? "0" + m : m
+        s = (s<10) ? "0" + s : s
+
+        
+        hora.innerHTML=h;
+        min.innerHTML=m;
+        sec.innerHTML=s;
+        ampm.innerHTML=am;
+
+        })
+
+</script>
+    
+</body>
+</html>
